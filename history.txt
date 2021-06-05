@@ -1,0 +1,101 @@
+    1  top
+    2  ls
+    3  sudo raspi-config
+    4  top
+    5  sudo reboot
+    6  top
+    7  sudo apt install sonicpi
+    8  sudo apt update
+    9  sudo apt install ./sonic-pi_3.3.1_1_armhf.deb
+   10  cd Downloads/
+   11  sudo apt install ./sonic-pi_3.3.1_1_armhf.deb
+   12  top
+   13  pip3 install music
+   14  ls
+   15  python3 play_from.py 
+   16  git clone  https://github.com/pyenv/pyenv.git ~/.pyenv
+   17  git pull
+   18  echo 'export PYENV_ROOT="${HOME}/.pyenv"' >> ~/.bashrc
+   19  echo 'if [ -d "${PYENV_ROOT}" ]; then' >> ~/.bashrc
+   20  echo '    export PATH=${PYENV_ROOT}/bin:$PATH' >> ~/.bashrcpi@homepi:~/.pyenv $ echo '    eval "$(pyenv init -)"' >> ~/.bashrc
+   21  echo 'fi' >> ~/.bashrc
+   22  exec $SHELL -l
+   23  ls
+   24  cd 
+   25  more .bashrc 
+   26  echo 'if [ -d "${PYENV_ROOT}" ]; then' >> ~/.bashrc
+   27  echo '    export PATH=${PYENV_ROOT}/bin:$PATH' >> ~/.bashrcpi@homepi:~/.pyenv 
+   28  echo '    eval "$(pyenv init -)"' >> ~/.bashrc
+   29  echo 'fi' >> ~/.bashrc
+   30  nano
+   31  nano .bashrc 
+   32  exec $SHELL -l
+   33  pyenv -v
+   34  pyenv install 3.8.3
+   35  sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+   36  pyenv install 3.8.3
+   37  python3 -v
+   38  python3 -version
+   39  python3 --version
+   40  pyenv init
+   41  nano .bashrc 
+   42  exec  $SHELL
+   43  ls
+   44  cd Downloads/
+   45  ls
+   46  python3 play_from.py 
+   47  cp play_from.py play_auto.py
+   48  python3 play_from.py 
+   49  python3 play_auto.py
+   50  more /etc/rc.local 
+   51  sudo nano /etc/rc.local 
+   52  ls
+   53  pwd
+   54  sudo nano /etc/rc.local 
+   55  sudo restart
+   56  sudo reboot
+   57  ps 
+   58  ps -aux
+   59  ps -aux 
+   60  ps -aux |grep pytho
+   61  [Desktop Entry]
+   62  Encoding=UTF-8
+   63  Name=Terminal autostart
+   64  Comment=Start a terminal and list directory
+   65  Exec=/usr/bin/lxterm -e 'cd /home/pi/Dropbox/PI'
+   66  sudo apt-get install xterm
+   67  mkdir -p ~/.config/autostart
+   68  nano ~/.config/autostart/lxterm-autostart.desktop 
+   69  sudo reboot
+   70  nano ~/.config/autostart/lxterm-autostart.desktop 
+   71  ls
+   72  nano ~/.config/autostart/lxterm-autostart.desktop 
+   73  ls
+   74  pwd
+   75  nano ~/.config/autostart/lxterm-autostart.desktop 
+   76  sudo reboot
+   77  $ sudo nano /home/pi/btserial.sh
+   78  $ chmod 755 /home/pi/btserial.sh
+   79  sudo chmod 755 /home/pi/btserial.sh
+   80  sudo nano /etc/rc.local
+   81  sudo reboot
+   82  cd Downloads/
+   83  ls
+   84  python neop.py 
+   85  sudo neop.py
+   86  sudo python3 neop.py
+   87  more neop.py 
+   88  sudo reboot
+   89  restart
+   90  sudo reboot
+   91  sudo apt install bluetooth pi-bluetooth bluez blueman
+   92  ssudo reboot
+   93  sudo restart
+   94  sudo reboot
+   95  ifconfig
+   96  ping google.com
+   97  ls
+   98  pwd
+   99  ls Downloads/
+  100  history
+  101  history > Downloads/history.txt

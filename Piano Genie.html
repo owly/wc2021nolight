@@ -1,0 +1,153 @@
+
+<!-- saved from url=(0037)file:///home/pi/Downloads/wctone.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Piano Genie</title>
+    
+    <link href="./Piano Genie_files/css" rel="stylesheet">
+    <script src="./Piano Genie_files/Tone.js"></script>
+    <script src="./Piano Genie_files/music@1.3.1"></script>
+    <script src="./Piano Genie_files/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="./Piano Genie_files/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="./Piano Genie_files/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="./Piano Genie_files/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script>
+	var genie1 = new mm.PianoGenie("https://storage.googleapis.com/magentadata/js/checkpoints/piano_genie/model/epiano/stp_iq_auto_contour_dt_166006");
+	genie1.initialize().then(()=>{console.log('🧞‍♀️ ready!');});
+	var keyWhitelist = Array(72).fill().map((x,i) => {return i;});
+	// var note1 = genie1.nextFromKeyWhitelist(3, keyWhitelist, .25);
+  </script><script type="text/javascript">
+                const synth = new Tone.Synth();
+synth.oscillator.type = "sine";
+synth.toMaster();
+
+  	function clic(n){
+        Tone.start();
+      var d = new Date();
+      var t = d.getTime();
+  		var note1 = genie1.nextFromKeyWhitelist(n, keyWhitelist, .25);
+  		$("#input").val(note1);
+  		console.log(note1);
+        playNote(note1);
+      var d1 = new Date();
+      var t1 = d1.getTime();
+      var diff = t1-t;
+      console.log(t1);
+      console.log(diff);
+  	}
+      
+      function playNote(note) {
+          var noteString = Tone.Frequency(note, "midi").toNote();
+          console.log(noteString);
+          synth.triggerAttackRelease(noteString,'8n');
+      }
+  </script></head>  
+  
+  
+  <body> 
+  	<button id="b0" type="button" class="btn btn-primary" onclick="clic(0);">0</button>
+  	<button id="b1" type="button" class="btn btn-primary" onclick="clic(1);">1</button>
+  	<button id="b2" type="button" class="btn btn-primary" onclick="clic(2);">2</button>
+  	<button id="b3" type="button" class="btn btn-primary" onclick="clic(3);">3</button>
+  	<button id="b4" type="button" class="btn btn-primary" onclick="clic(4);">4</button>
+  	<button id="b5" type="button" class="btn btn-primary" onclick="clic(5);">5</button>
+  	<button id="b6" type="button" class="btn btn-primary" onclick="clic(6);">6</button>
+  	<button id="b7" type="button" class="btn btn-primary" onclick="clic(7);">7</button>
+  	<br>
+    <input id="input" type="text" class="Disable" value=""> 
+
+<br>
+<br>
+<!-- velocity  0-<input type="range" id="velocityIdInputId" value="24" min="1" max="100" oninput="velocityId.value = velocityIdInputId.value">-100
+    <output class="Disable" type="text" id="velocityId" value="55">50</output>
+ --><br>
+<br>
+delay      <b><output id="delayId">500</output></b>
+0-<input type="range" id="delayInputId" value="500" min="1" max="2000" oninput="delayId.value = delayInputId.value">-2000
+<br>
+
+<br>
+note duration      <b><output id="durationId">1500</output></b>  
+250<input type="range" id="durationInputId" value="1500" min="250" max="5000" oninput="durationId.value = durationInputId.value">-5000
+<br>
+
+  <div class="form-group row">
+    <label for="delay" class="col-2 col-form-label">velocity</label>
+    <div class="col-3">
+      <textarea class="form-control" rows="3" id="velocityId">if (mvt &gt; 127):
+  velocity = 127
+else:
+  velocity = mvt
+</textarea>
+    </div>
+  </div>   
+
+
+
+  <div class="form-group row">
+    <label for="delay" class="col-2 col-form-label">num_for_two_channels</label>
+    <div class="col-2">
+      <input class="form-control" type="number" value="3" id="num_for_two_channels">
+    </div>
+ </div>   
+
+  <div class="form-group row">
+	  <label for="delay" class="col-2 col-form-label">num_for_three_channels</label>
+  	<div class="col-2">
+    	<input class="form-control" type="number" value="5" id="num_for_three_channels">
+  	</div>
+ </div>		
+
+<br>
+  <div class="form-group row">
+	  <label for="threshold0" class="col-2 col-form-label">threshold0</label>
+  	<div class="col-2">
+    	<input class="form-control" type="number" value="5" id="threshold0">
+  	</div>
+ </div>		
+  <div class="form-group row">
+	  <label for="threshold 1" class="col-2 col-form-label">threshold1</label>
+  	<div class="col-2">
+    	<input class="form-control" type="number" value="5" id="threshold1">
+  	</div>
+ </div>		
+  <div class="form-group row">
+	  <label for="threshold2" class="col-2 col-form-label">threshold2</label>
+  	<div class="col-2">
+    	<input class="form-control" type="number" value="5" id="threshold2">
+  	</div>
+ </div>		
+  <div class="form-group row">
+	  <label for="threshold3" class="col-2 col-form-label">threshold3</label>
+  	<div class="col-2">
+    	<input class="form-control" type="number" value="5" id="threshold3">
+  	</div>
+ </div>		
+
+
+  
+	 
+  	<!-- var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'https://cdn.jsdelivr.net/npm/@magenta/music@1.3.1';
+document.head.appendChild(script);
+
+var genie1 = new mm.PianoGenie("https://storage.googleapis.com/magentadata/js/checkpoints/piano_genie/model/epiano/stp_iq_auto_contour_dt_166006");
+genie1.initialize().then(()=>{
+        console.log('🧞‍♀️ ready!');
+        playBtn.textContent = 'Play';
+        playBtn.removeAttribute('disabled');
+        playBtn.classList.remove('loading');
+    }
+    );
+var keyWhitelist = Array(72).fill().map((x,i) => {
+     return i;
+  });
+var note1 = genie1.nextFromKeyWhitelist(3, keyWhitelist, .25);
+note1 = genie1.nextFromKeyWhitelist(3, keyWhitelist, .25);note1;
+ -->
+
+
+
+
+</body></html>
